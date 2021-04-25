@@ -1,5 +1,5 @@
 list = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
-number = 2
+number = 23
 
 def binary_search(list, number)
   @first_part = ""
@@ -21,13 +21,13 @@ def binary_search(list, number)
       list = @first_part
       binary_search(list, number)
     end
-  else
+  elsif number >= take_second_half(list).last
     @second_part = take_second_half(list)
     if number == @second_part.first
       p "sss"
       return list_standard.index number
     else
-      list = second_part
+      list = @second_part
       binary_search(list, number)
     end
   end
