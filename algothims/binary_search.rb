@@ -1,15 +1,20 @@
+list_standard = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
 list = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
-number = 23
+number = 91
 
-def binary_search(list, number)
+def binary_search(list_standard:, list: "", number:)
+  return if list.nil?
   @first_part = ""
   @second_part = ""
-  list_standard = list
+  list_standard = list_standard
+  p "The list standard #{list_standard}"
   list = list
+  list = list_standard if list.empty?
+  p "The list #{list}"
   number = number
+  p "The number to search #{number}"
   p "Call binary search"
   p "list is #{list}"
-  return nil if list.nil?
 
   if number <= take_first_half(list).last
     @first_part = take_first_half(list)
@@ -19,16 +24,16 @@ def binary_search(list, number)
       return list_standard.index number
     else
       list = @first_part
-      binary_search(list, number)
+      binary_search(list_standard: list_standard, list: list, number: number)
     end
-  elsif number >= take_second_half(list).last
+  elsif number >= take_second_half(list).first
     @second_part = take_second_half(list)
     if number == @second_part.first
       p "sss"
       return list_standard.index number
     else
       list = @second_part
-      binary_search(list, number)
+      binary_search(list_standard: list_standard, list: list, number: number)
     end
   end
 =begin
@@ -82,6 +87,6 @@ def take_second_half(list)
   second_half
 end
 
-result = binary_search list, number
+result = binary_search list_standard: list_standard, list: "", number: number
 p result
 
