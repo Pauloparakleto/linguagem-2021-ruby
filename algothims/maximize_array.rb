@@ -46,13 +46,19 @@ class MaximizeArray
     @positive_array.map! do |number|
       if @k.even?
         p 'k is even return sum'
-        return @positive_array.sum + @negative_array.sum
+        number
       else
-        number * (-1)
-        @score += 1
-        return @positive_array.sum + @negative_array.sum if @score == @k
+        if @score < @k
+          p 'score less than k'
+          @score = @k
+          -number
+        else
+          number
+        end
+
       end
     end
+    @positive_array.sum + @negative_array.sum
   end
 end
 
