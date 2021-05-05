@@ -20,7 +20,6 @@ class MaximizeArray
     p "negative array #{@negative_array}"
     @positive_array = sorted_array.select { |number| number > 0 }
     p "positive array #{@positive_array}"
-
     @negative_array.map! do |number|
       p "In negative array block"
       p "Score was #{@score}"
@@ -34,8 +33,10 @@ class MaximizeArray
         p "return sum"
         return @negative_array.sum + @positive_array.sum
       end
-
+      number
     end
+
+    p "negative array now is: #{@negative_array} "
 
     @zero_array = sorted_array.select { |number| number == 0 }
     @zero_array.map! do
